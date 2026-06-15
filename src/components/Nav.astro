@@ -1,0 +1,106 @@
+---
+const links = [
+  { label: "Origen", href: "#origen" },
+  { label: "Proceso", href: "#proceso" },
+  { label: "Café", href: "#cafe" },
+  { label: "Visítanos", href: "#visitanos" },
+];
+---
+
+<header class="nav">
+  <div class="nav__inner container">
+    <a href="#top" class="nav__brand">
+      <span class="nav__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+          <path
+            d="M7 11c0-3 2.2-5 5-5s5 2 5 5-2.2 6-5 6-5-3-5-6Z"
+            stroke="currentColor"
+            stroke-width="1.3"></path>
+          <path d="M12 6c-1.4 1.6-1.4 3.4 0 5s1.4 3.4 0 5" stroke="currentColor" stroke-width="1.3"></path>
+        </svg>
+      </span>
+      <span class="nav__word">Bruma</span>
+    </a>
+
+    <nav class="nav__links">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+
+    <a href="#cafe" class="btn btn--ghost nav__cta">
+      Tienda
+      <span class="btn__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none">
+          <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+    </a>
+  </div>
+</header>
+
+<style lang="scss">
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    padding-top: 1.4rem;
+    mix-blend-mode: normal;
+
+    &__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    &__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    &__mark {
+      color: var(--terracotta);
+    }
+    &__word {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      letter-spacing: -0.02em;
+    }
+
+    &__links {
+      display: none;
+      gap: 2rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+
+      a {
+        position: relative;
+        padding: 0.2rem 0;
+        transition: color 0.4s var(--ease);
+      }
+      a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 1px;
+        width: 0;
+        background: var(--terracotta);
+        transition: width 0.5s var(--ease);
+      }
+      a:hover {
+        color: var(--terracotta);
+      }
+      a:hover::after {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 820px) {
+      .nav__links {
+        display: flex;
+      }
+    }
+  }
+</style>

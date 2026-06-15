@@ -1,0 +1,180 @@
+---
+const hours = [
+  { day: "Lunes a viernes", time: "07:30 — 19:00" },
+  { day: "Sábados", time: "08:30 — 18:00" },
+  { day: "Domingos", time: "09:00 — 14:00" },
+];
+---
+
+<section id="visitanos" class="loc">
+  <div class="container loc__grid">
+    <div class="loc__copy">
+      <p class="eyebrow" data-reveal>Visítanos</p>
+      <h2 class="loc__title" data-reveal>
+        Una barra, un tostador <span class="serif-italic">y mesa larga.</span>
+      </h2>
+      <p class="loc__lead" data-reveal>
+        Nuestra tostaduría es también cafetería. Ven a catar el lote de la
+        semana, conversar con el barista y llevarte el grano recién tostado.
+      </p>
+
+      <div class="loc__info" data-stagger>
+        <div class="loc__block">
+          <span class="loc__label">Dirección</span>
+          <p>Calle del Roble 142<br />Barrio La Macarena, Bogotá</p>
+        </div>
+        <div class="loc__block">
+          <span class="loc__label">Horario</span>
+          <ul class="loc__hours">
+            {
+              hours.map((h) => (
+                <li>
+                  <span>{h.day}</span>
+                  <span>{h.time}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="loc__block">
+          <span class="loc__label">Contacto</span>
+          <p>hola@bruma.coffee<br />+57 601 555 0142</p>
+        </div>
+      </div>
+
+      <a href="#top" class="btn loc__cta">
+        Cómo llegar
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none">
+            <path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z" stroke="currentColor" stroke-width="1.6"></path>
+            <circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6"></circle>
+          </svg>
+        </span>
+      </a>
+    </div>
+
+    <div class="loc__map" data-reveal>
+      <div class="loc__map-inner">
+        <span class="loc__road loc__road--h" style="top:32%"></span>
+        <span class="loc__road loc__road--h" style="top:64%"></span>
+        <span class="loc__road loc__road--v" style="left:38%"></span>
+        <span class="loc__road loc__road--v" style="left:72%"></span>
+        <span class="loc__pin" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="var(--terracotta)">
+            <path d="M12 22s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"></path>
+            <circle cx="12" cy="11" r="2.6" fill="var(--cream)"></circle>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .loc {
+    padding: 9rem 0;
+    background: var(--cream-2);
+  }
+  .loc__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+  .loc__title {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    margin: 1rem 0 1.2rem;
+    max-width: 14ch;
+  }
+  .loc__lead {
+    max-width: 44ch;
+    color: var(--espresso-2);
+  }
+  .loc__info {
+    margin: 2.5rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem;
+  }
+  .loc__label {
+    display: block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--terracotta);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .loc__block p,
+  .loc__hours {
+    color: var(--espresso-2);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .loc__hours {
+    list-style: none;
+    li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      max-width: 18rem;
+    }
+  }
+
+  .loc__map {
+    border-radius: 1.75rem;
+    overflow: hidden;
+    border: 1px solid rgba(59, 42, 30, 0.14);
+    aspect-ratio: 4 / 3;
+  }
+  .loc__map-inner {
+    position: relative;
+    height: 100%;
+    background:
+      radial-gradient(40rem 30rem at 70% 20%, rgba(108, 111, 63, 0.18), transparent 60%),
+      #e7dcc9;
+  }
+  .loc__road {
+    position: absolute;
+    background: rgba(59, 42, 30, 0.16);
+    &--h {
+      left: 0;
+      right: 0;
+      height: 8px;
+    }
+    &--v {
+      top: 0;
+      bottom: 0;
+      width: 8px;
+    }
+  }
+  .loc__pin {
+    position: absolute;
+    top: 64%;
+    left: 38%;
+    transform: translate(-50%, -100%);
+    filter: drop-shadow(0 8px 10px rgba(59, 42, 30, 0.3));
+    animation: pin-bob 2.6s var(--ease) infinite;
+  }
+  @keyframes pin-bob {
+    0%,
+    100% {
+      transform: translate(-50%, -100%);
+    }
+    50% {
+      transform: translate(-50%, -118%);
+    }
+  }
+
+  @media (min-width: 920px) {
+    .loc__grid {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .loc__pin {
+      animation: none;
+    }
+  }
+</style>

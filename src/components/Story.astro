@@ -1,0 +1,151 @@
+---
+const figures = [
+  { value: "11", label: "fincas aliadas" },
+  { value: "6", label: "países de origen" },
+  { value: "48h", label: "del tueste a tu taza" },
+];
+---
+
+<section id="origen" class="story">
+  <div class="container story__grid">
+    <div class="story__media">
+      <div class="story__panel" data-clip>
+        <div class="story__panel-inner" data-parallax="18">
+          <div class="story__hills"></div>
+          <div class="story__sun"></div>
+        </div>
+      </div>
+      <div class="story__figures" data-stagger>
+        {
+          figures.map((f) => (
+            <div class="story__figure">
+              <span class="story__value">{f.value}</span>
+              <span class="story__label">{f.label}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="story__copy">
+      <p class="eyebrow" data-reveal>El origen</p>
+      <h2 class="story__title" data-reveal>
+        Relaciones largas con quienes cultivan el grano.
+      </h2>
+      <p data-reveal>
+        Bruma nace de viajar a la finca antes que a la góndola. Pagamos por
+        encima del precio de mercado, acompañamos la cosecha y compartimos las
+        notas de cata con cada productor. Así sabemos exactamente qué taza
+        estamos comprando, y de quién.
+      </p>
+      <p data-reveal>
+        Trabajamos solo con lotes de altura, recogidos a mano y procesados en
+        finca. Cada bolsa lleva el nombre del agricultor, la variedad y la fecha
+        de tueste impresa, porque la trazabilidad no es un sello: es el punto de
+        partida.
+      </p>
+      <blockquote class="story__quote" data-reveal>
+        “El mejor café no se fabrica. Se acompaña desde la semilla hasta la
+        taza.”
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .story {
+    padding: 9rem 0;
+  }
+  .story__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .story__panel {
+    border-radius: 1.75rem;
+    overflow: hidden;
+    aspect-ratio: 5 / 6;
+    max-width: 30rem;
+  }
+  .story__panel-inner {
+    position: relative;
+    height: 118%;
+    margin-top: -9%;
+    background: linear-gradient(180deg, #d9b98f 0%, #c99a6a 38%, #6c6f3f 100%);
+    overflow: hidden;
+  }
+  .story__sun {
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7rem;
+    height: 7rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, #f4ece0, #e7c79a 70%);
+    box-shadow: 0 0 6rem rgba(244, 236, 224, 0.5);
+  }
+  .story__hills {
+    position: absolute;
+    inset: 40% 0 0 0;
+    background:
+      radial-gradient(28rem 18rem at 20% 100%, #4a3526 40%, transparent 41%),
+      radial-gradient(30rem 20rem at 78% 100%, #3b2a1e 42%, transparent 43%),
+      radial-gradient(40rem 22rem at 50% 130%, #2c1f16 50%, transparent 51%);
+  }
+
+  .story__figures {
+    margin-top: 1.6rem;
+    display: flex;
+    gap: 2.4rem;
+    flex-wrap: wrap;
+  }
+  .story__figure {
+    display: flex;
+    flex-direction: column;
+  }
+  .story__value {
+    font-family: var(--serif);
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--terracotta);
+  }
+  .story__label {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--espresso-2);
+    margin-top: 0.3rem;
+  }
+
+  .story__title {
+    font-size: clamp(2rem, 4.4vw, 3.4rem);
+    margin: 1rem 0 1.6rem;
+    max-width: 16ch;
+  }
+  .story__copy p {
+    max-width: 46ch;
+    margin-bottom: 1.1rem;
+    color: var(--espresso-2);
+  }
+  .story__quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: var(--espresso);
+    margin-top: 2rem;
+    padding-left: 1.4rem;
+    border-left: 2px solid var(--terracotta);
+    max-width: 30ch;
+  }
+
+  @media (min-width: 900px) {
+    .story__grid {
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 5rem;
+    }
+  }
+</style>

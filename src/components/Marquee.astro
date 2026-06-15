@@ -1,0 +1,65 @@
+---
+const items = [
+  "Cacao y panela",
+  "Jazmín",
+  "Mandarina",
+  "Caramelo salado",
+  "Frutos rojos",
+  "Miel de caña",
+  "Durazno blanco",
+  "Nuez tostada",
+];
+---
+
+<section class="mq" aria-hidden="true">
+  <div class="mq__track">
+    {
+      [...items, ...items].map((t) => (
+        <span class="mq__item">
+          {t}
+          <span class="mq__star">✳</span>
+        </span>
+      ))
+    }
+  </div>
+</section>
+
+<style lang="scss">
+  .mq {
+    overflow: hidden;
+    background: var(--terracotta);
+    color: var(--paper);
+    padding: 1.4rem 0;
+  }
+  .mq__track {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 2.5rem;
+    animation: marquee 34s linear infinite;
+  }
+  .mq__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 2.5rem;
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3.2vw, 2.4rem);
+    font-style: italic;
+    white-space: nowrap;
+  }
+  .mq__star {
+    font-size: 0.8em;
+    opacity: 0.75;
+    font-style: normal;
+  }
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mq__track {
+      animation: none;
+    }
+  }
+</style>

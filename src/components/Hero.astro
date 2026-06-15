@@ -1,0 +1,183 @@
+---
+---
+
+<section id="top" class="hero">
+  <div class="hero__grid container">
+    <div class="hero__copy">
+      <p class="eyebrow hero-meta">Tostadores de especialidad · desde 2014</p>
+
+      <h1 class="display hero__title">
+        <span class="line hero-line"><span>El café como</span></span>
+        <span class="line hero-line"><span>un acto de</span></span>
+        <span class="line hero-line"
+          ><span class="serif-italic" style="color:var(--terracotta)">paciencia.</span></span
+        >
+      </h1>
+
+      <p class="hero__lead hero-meta">
+        Compramos directo a fincas de altura, tostamos en lotes pequeños y
+        catamos cada perfil hasta encontrar su punto exacto. Café que sabe a su
+        lugar de origen.
+      </p>
+
+      <div class="hero__actions hero-meta">
+        <a href="#cafe" class="btn">
+          Ver la carta
+          <span class="btn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </a>
+        <a href="#proceso" class="btn btn--ghost">Nuestro proceso</a>
+      </div>
+    </div>
+
+    <div class="hero__media">
+      <div class="hero__panel" data-clip>
+        <div class="hero__panel-inner" data-parallax="14">
+          <span class="hero__steam" aria-hidden="true"></span>
+          <svg class="hero__branch" viewBox="0 0 120 220" fill="none" aria-hidden="true">
+            <path d="M60 210V40" stroke="rgba(244,236,224,0.55)" stroke-width="2"></path>
+            <g stroke="rgba(244,236,224,0.55)" stroke-width="2" fill="none">
+              <path d="M60 70c18-6 30-22 30-44M60 70C42 64 30 48 30 26"></path>
+              <path d="M60 112c20-6 33-24 33-48M60 112c-20-6-33-24-33-48"></path>
+              <path d="M60 154c18-6 30-22 30-44M60 154c-18-6-30-22-30-44"></path>
+            </g>
+            <g fill="var(--terracotta)">
+              <circle cx="92" cy="24" r="7"></circle>
+              <circle cx="28" cy="24" r="7"></circle>
+              <circle cx="95" cy="62" r="7"></circle>
+              <circle cx="25" cy="62" r="7"></circle>
+              <circle cx="92" cy="108" r="7"></circle>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <p class="hero__caption hero-meta">
+        <span>Lote 04</span> · Tolima, Colombia · 1.850 m
+      </p>
+    </div>
+  </div>
+
+  <div class="hero__ribbon" aria-hidden="true">
+    <span data-drift="-5">Geisha</span><span class="dot"></span><span data-drift="-5"
+      >Tueste medio</span
+    ><span class="dot"></span><span data-drift="-5">Notas de jazmín</span><span class="dot"
+    ></span><span data-drift="-5">Lote único</span><span class="dot"></span><span data-drift="-5"
+      >Origen trazable</span
+    >
+  </div>
+</section>
+
+<style lang="scss">
+  .hero {
+    min-height: 100dvh;
+    padding-top: 9rem;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(60rem 40rem at 90% -10%, rgba(194, 104, 61, 0.12), transparent 60%),
+      radial-gradient(50rem 40rem at -10% 110%, rgba(108, 111, 63, 0.12), transparent 60%);
+  }
+
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: end;
+    flex: 1;
+  }
+
+  .hero__title {
+    margin: 1.4rem 0 1.8rem;
+  }
+
+  .hero__lead {
+    max-width: 34ch;
+    font-size: 1.05rem;
+    color: var(--espresso-2);
+  }
+
+  .hero__actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  .hero__media {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .hero__panel {
+    width: 100%;
+    max-width: 26rem;
+    aspect-ratio: 4 / 5;
+    border-radius: 16rem 16rem 1.5rem 1.5rem;
+    overflow: hidden;
+    will-change: clip-path;
+  }
+  .hero__panel-inner {
+    position: relative;
+    height: 116%;
+    margin-top: -8%;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(circle at 50% 30%, #6f4a31, transparent 55%),
+      linear-gradient(160deg, #4a3526, #2c1f16 70%);
+  }
+
+  .hero__branch {
+    width: 58%;
+    opacity: 0.92;
+  }
+
+  .hero__caption {
+    font-size: 0.85rem;
+    color: var(--espresso-2);
+    letter-spacing: 0.02em;
+    span {
+      color: var(--terracotta);
+      font-weight: 600;
+    }
+  }
+
+  .hero__ribbon {
+    margin-top: 3rem;
+    border-top: 1px solid rgba(59, 42, 30, 0.16);
+    border-bottom: 1px solid rgba(59, 42, 30, 0.16);
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.4vw, 1.8rem);
+    color: var(--espresso-2);
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--terracotta);
+    }
+  }
+
+  @media (min-width: 900px) {
+    .hero__grid {
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 4rem;
+    }
+    .hero__media {
+      align-items: flex-end;
+    }
+  }
+</style>

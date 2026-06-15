@@ -1,0 +1,216 @@
+---
+const products = [
+  {
+    name: "Finca La Esperanza",
+    origin: "Huila, Colombia",
+    variety: "Caturra · Lavado",
+    notes: "Panela, mandarina, cacao",
+    altitude: "1.750 m",
+    price: "$18",
+    grad: "linear-gradient(150deg,#7a4a2c,#3b2a1e)",
+    big: true,
+  },
+  {
+    name: "El Mirador",
+    origin: "Nariño, Colombia",
+    variety: "Geisha · Honey",
+    notes: "Jazmín, durazno, miel",
+    altitude: "1.980 m",
+    price: "$26",
+    grad: "linear-gradient(150deg,#c2683d,#7a4a2c)",
+  },
+  {
+    name: "Cumbres del Tolima",
+    origin: "Tolima, Colombia",
+    variety: "Pink Bourbon · Natural",
+    notes: "Frutos rojos, vino, cacao",
+    altitude: "1.850 m",
+    grad: "linear-gradient(150deg,#6c6f3f,#3b2a1e)",
+    price: "$22",
+  },
+  {
+    name: "Aurora",
+    origin: "Cauca, Colombia",
+    variety: "Castillo · Lavado",
+    notes: "Caramelo, nuez, naranja",
+    altitude: "1.700 m",
+    grad: "linear-gradient(150deg,#9a6b3f,#4a3526)",
+    price: "$17",
+  },
+];
+---
+
+<section id="cafe" class="cafe">
+  <div class="container">
+    <div class="cafe__head">
+      <div>
+        <p class="eyebrow" data-reveal>La carta</p>
+        <h2 class="cafe__title" data-reveal>Lotes en tueste ahora</h2>
+      </div>
+      <p class="cafe__intro" data-reveal>
+        Cuatro orígenes disponibles esta semana. Todos en grano entero,
+        empacados con válvula y fecha de tueste. Rotamos la carta según cosecha.
+      </p>
+    </div>
+
+    <div class="cafe__grid" data-stagger>
+      {
+        products.map((p) => (
+          <article class={`card ${p.big ? "card--big" : ""}`}>
+            <div class="card__swatch" style={`background:${p.grad}`}>
+              <span class="card__bean" aria-hidden="true" />
+              {p.price && <span class="card__price">{p.price}</span>}
+            </div>
+            <div class="card__body">
+              <div class="card__row">
+                <h3 class="card__name">{p.name}</h3>
+                <span class="card__alt">{p.altitude}</span>
+              </div>
+              <p class="card__origin">{p.origin}</p>
+              <p class="card__variety">{p.variety}</p>
+              <p class="card__notes">{p.notes}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .cafe {
+    padding: 9rem 0;
+  }
+  .cafe__head {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .cafe__title {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    margin-top: 0.8rem;
+  }
+  .cafe__intro {
+    max-width: 42ch;
+    color: var(--espresso-2);
+  }
+
+  .cafe__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .card {
+    background: var(--paper);
+    border: 1px solid rgba(59, 42, 30, 0.12);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 60px -40px rgba(59, 42, 30, 0.5);
+    }
+    &:hover .card__swatch {
+      transform: scale(1.04);
+    }
+  }
+  .card__swatch {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    transition: transform 0.8s var(--ease);
+  }
+  .card__bean {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(0.9rem 1.4rem at 30% 40%, rgba(0, 0, 0, 0.28), transparent 60%),
+      radial-gradient(0.9rem 1.4rem at 62% 64%, rgba(0, 0, 0, 0.25), transparent 60%),
+      radial-gradient(0.9rem 1.4rem at 78% 30%, rgba(0, 0, 0, 0.2), transparent 60%);
+  }
+  .card__price {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--cream);
+    color: var(--espresso);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+  }
+  .card__body {
+    padding: 1.5rem 1.6rem 1.8rem;
+  }
+  .card__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  .card__name {
+    font-size: 1.5rem;
+  }
+  .card__alt {
+    font-size: 0.78rem;
+    color: var(--olive);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .card__origin {
+    color: var(--terracotta);
+    font-weight: 600;
+    font-size: 0.92rem;
+    margin-top: 0.4rem;
+  }
+  .card__variety {
+    color: var(--espresso-2);
+    font-size: 0.9rem;
+    margin-top: 0.6rem;
+  }
+  .card__notes {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    margin-top: 0.8rem;
+    color: var(--espresso);
+  }
+
+  @media (min-width: 720px) {
+    .cafe__head {
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+    }
+    .cafe__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .card--big {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+    }
+    .card--big .card__swatch {
+      aspect-ratio: auto;
+      height: 100%;
+      min-height: 18rem;
+    }
+    .card--big .card__body {
+      align-self: center;
+    }
+  }
+  @media (min-width: 1040px) {
+    .cafe__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .card--big {
+      grid-column: span 1;
+      grid-row: span 2;
+      grid-template-columns: 1fr;
+    }
+    .card--big .card__swatch {
+      min-height: 20rem;
+    }
+  }
+</style>

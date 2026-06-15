@@ -1,0 +1,117 @@
+---
+const year = new Date().getFullYear();
+const cols = [
+  { title: "Café", links: ["La carta", "Suscripción", "Métodos", "Mayoristas"] },
+  { title: "Casa", links: ["Origen", "Proceso", "Visítanos", "Trabaja con nosotros"] },
+  { title: "Síguenos", links: ["Instagram", "Newsletter", "Spotify", "Eventos"] },
+];
+---
+
+<footer class="ft">
+  <div class="container">
+    <div class="ft__top">
+      <span class="ft__brand">Bruma<span>.</span></span>
+      <p class="ft__claim">Tostadores de especialidad en lotes pequeños.</p>
+    </div>
+
+    <div class="ft__cols">
+      {
+        cols.map((c) => (
+          <div class="ft__col">
+            <span class="ft__col-title">{c.title}</span>
+            <ul>
+              {c.links.map((l) => (
+                <li>
+                  <a href="#top">{l}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="ft__bottom">
+      <p>© {year} Bruma Café. Todos los derechos reservados.</p>
+      <p class="ft__demo">Demo · solo frontend · datos ficticios, sin tienda real</p>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  .ft {
+    background: var(--espresso);
+    color: var(--cream);
+    padding: 5rem 0 3rem;
+  }
+  .ft__top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(244, 236, 224, 0.16);
+  }
+  .ft__brand {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 12vw, 8rem);
+    line-height: 1;
+    span {
+      color: var(--terracotta);
+    }
+  }
+  .ft__claim {
+    color: rgba(244, 236, 224, 0.66);
+    max-width: 22ch;
+  }
+
+  .ft__cols {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    padding: 3rem 0;
+  }
+  .ft__col-title {
+    display: block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #e0a87e;
+    margin-bottom: 1rem;
+  }
+  .ft__col ul {
+    list-style: none;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .ft__col a {
+    color: rgba(244, 236, 224, 0.78);
+    transition: color 0.4s var(--ease);
+    &:hover {
+      color: var(--cream);
+    }
+  }
+
+  .ft__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.6rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(244, 236, 224, 0.16);
+    font-size: 0.82rem;
+    color: rgba(244, 236, 224, 0.6);
+  }
+  .ft__demo {
+    font-style: italic;
+  }
+
+  @media (min-width: 720px) {
+    .ft__cols {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 40rem;
+      margin-left: auto;
+    }
+  }
+</style>

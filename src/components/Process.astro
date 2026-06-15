@@ -1,0 +1,116 @@
+---
+const steps = [
+  {
+    n: "01",
+    title: "Selección del verde",
+    body: "Catamos cada lote en verde y descartamos el grano que no llega al puntaje. Solo entra a tostar lo que promete en taza.",
+  },
+  {
+    n: "02",
+    title: "Curva de tueste",
+    body: "Diseñamos una curva única por origen en nuestro tostador de tambor. Controlamos temperatura y tiempo al segundo para revelar dulzor sin amargor.",
+  },
+  {
+    n: "03",
+    title: "Reposo y cata",
+    body: "El café reposa entre tres y siete días para estabilizar el gas. Volvemos a catar antes de aprobar el lote para venta.",
+  },
+  {
+    n: "04",
+    title: "Molienda y empaque",
+    body: "Empacamos en bolsa con válvula el mismo día, con fecha de tueste visible. Molemos a pedido para que nada se oxide antes de tiempo.",
+  },
+];
+---
+
+<section id="proceso" class="proc">
+  <div class="container">
+    <div class="proc__head">
+      <p class="eyebrow" data-reveal>El proceso</p>
+      <h2 class="proc__title" data-reveal>
+        Cuatro pasos entre la finca <br /><span class="serif-italic">y tu cafetera.</span>
+      </h2>
+    </div>
+
+    <ol class="proc__list">
+      {
+        steps.map((s) => (
+          <li class="proc__step" data-reveal>
+            <span class="proc__num" data-drift="-4">
+              {s.n}
+            </span>
+            <div class="proc__content">
+              <h3 class="proc__step-title">{s.title}</h3>
+              <p>{s.body}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style lang="scss">
+  .proc {
+    padding: 9rem 0;
+    background: var(--espresso);
+    color: var(--cream);
+  }
+
+  .proc__head {
+    max-width: 60rem;
+    margin-bottom: 4rem;
+    .eyebrow {
+      color: #e0a87e;
+    }
+  }
+  .proc__title {
+    font-size: clamp(2.2rem, 5.5vw, 4.6rem);
+    line-height: 1.02;
+    margin-top: 1rem;
+    color: var(--cream);
+  }
+
+  .proc__list {
+    list-style: none;
+  }
+  .proc__step {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem 2.5rem;
+    padding: 2.6rem 0;
+    border-top: 1px solid rgba(244, 236, 224, 0.16);
+
+    &:last-child {
+      border-bottom: 1px solid rgba(244, 236, 224, 0.16);
+    }
+  }
+  .proc__num {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 9vw, 7rem);
+    line-height: 0.8;
+    color: var(--terracotta);
+    opacity: 0.95;
+  }
+  .proc__step-title {
+    font-size: 1.7rem;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+  }
+  .proc__content p {
+    max-width: 52ch;
+    color: rgba(244, 236, 224, 0.72);
+  }
+
+  @media (min-width: 820px) {
+    .proc__step {
+      grid-template-columns: 9rem 1fr;
+      align-items: start;
+      gap: 3.5rem;
+    }
+    .proc__step:hover .proc__step-title {
+      color: #e0a87e;
+      transition: color 0.5s var(--ease);
+    }
+  }
+</style>
