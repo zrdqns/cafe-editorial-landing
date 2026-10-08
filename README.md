@@ -1,43 +1,43 @@
-# Bruma — Landing Café Editorial
+# Bruma — Editorial Coffee Landing
 
-Landing page de demostración para **Bruma**, un tostador ficticio de café de especialidad. Diseño editorial tipo revista, cálido y orgánico, con layout asimétrico y animaciones de scroll narrativas.
+Demo landing page for **Bruma**, a fictional specialty coffee roaster. Magazine-style editorial design, warm and organic, with an asymmetric layout and narrative scroll animations.
 
-> **Demo solo-frontend.** No hay backend, tienda, carrito ni API. Productos, precios, fincas y datos de contacto son ficticios. El objetivo es mostrar capacidad visual y de motion.
+> **Frontend-only demo.** There is no backend, store, cart or API. Products, prices, farms and contact details are fictional. The goal is to show visual and motion skills.
 
 ## Stack
 
-- **Astro** (sitio estático)
-- **SCSS / CSS vanilla** (estilos por componente, sin framework de utilidades)
-- **GSAP** + **ScrollTrigger** para las animaciones de scroll
-- **Lenis** para smooth scroll con inercia
+- **Astro** (static site)
+- **SCSS / vanilla CSS** (per-component styles, no utility framework)
+- **GSAP** + **ScrollTrigger** for the scroll animations
+- **Lenis** for smooth scroll with inertia
 
-## Diseño
+## Design
 
-- **Paleta tierra:** crema (`#F4ECE0`), café oscuro (`#3B2A1E`), terracota (`#C2683D`) y oliva como acento.
-- **Tipografía:** Fraunces (serif display variable) para titulares + Hanken Grotesk (sans humanista) para cuerpo.
-- **Layout:** editorial asimétrico, mucho whitespace, numerales gigantes y secciones a sangre.
-- Textura de **film grain** sobre toda la página para sensación de papel.
+- **Earth palette:** cream (`#F4ECE0`), dark coffee (`#3B2A1E`), terracotta (`#C2683D`) and olive as an accent.
+- **Typography:** Fraunces (variable display serif) for headlines + Hanken Grotesk (humanist sans) for body text.
+- **Layout:** asymmetric editorial, lots of whitespace, giant numerals and full-bleed sections.
+- **Film grain** texture over the whole page for a paper feel.
 
-## Animaciones
+## Animations
 
-- Reveal de titular del hero **línea por línea** (máscara + translate).
-- **Parallax** en los paneles ilustrados.
-- **Image reveal con clip-path** al entrar en viewport.
-- **Smooth scroll** con inercia (Lenis sincronizado con ScrollTrigger).
-- **Marquee** de notas de cata.
-- Reveals escalonados de bloques y tarjetas.
-- Respeta `prefers-reduced-motion`.
+- Hero headline reveal **line by line** (mask + translate).
+- **Parallax** on the illustrated panels.
+- **Image reveal with clip-path** on entering the viewport.
+- **Smooth scroll** with inertia (Lenis synced with ScrollTrigger).
+- **Marquee** of tasting notes.
+- Staggered reveals of blocks and cards.
+- Respects `prefers-reduced-motion`.
 
-## Secciones
+## Sections
 
-Hero editorial a pantalla completa · Historia / origen · Proceso de tueste (4 pasos) · Marquee de notas · Productos destacados · Ubicación · Footer.
+Full-screen editorial hero · Story / origin · Roasting process (4 steps) · Notes marquee · Featured products · Location · Footer.
 
-Las imágenes son ilustraciones construidas con CSS (gradientes, clip-path y SVG en línea); no se usan fotos reales.
+The images are illustrations built with CSS (gradients, clip-path and inline SVG); no real photos are used.
 
-## Desarrollo
+## Development
 
 ```sh
 npm install
 npm run dev      # http://localhost:4321
-npm run build    # genera dist/
+npm run build    # outputs dist/
 ```
